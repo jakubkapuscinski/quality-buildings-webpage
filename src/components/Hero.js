@@ -12,58 +12,7 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `translateY(${offsetY * 0.5}px)`,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-luxury-gray-900 via-luxury-gray-800 to-luxury-gray-900" />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-      </div>
 
-      {/* Floating decorative elements for Hero */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-5">
-        <motion.div 
-          animate={{ 
-            y: [0, -40, 0],
-            rotate: [0, 15, 0],
-          }}
-          transition={{ 
-            duration: 18, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute top-1/4 left-16 w-3 h-3 bg-luxury-gold/10 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, 30, 0],
-            x: [0, -25, 0],
-          }}
-          transition={{ 
-            duration: 15, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute bottom-1/3 right-20 w-2 h-2 bg-luxury-gold/15 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, -10, 0],
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 4
-          }}
-          className="absolute top-1/3 right-1/4 w-1 h-1 bg-luxury-gold/20 rounded-full"
-        />
-      </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
@@ -111,7 +60,7 @@ const Hero = () => {
               x: 0,
               transition: { duration: 0.8, delay: 0.6 }
             }}
-            className="block text-luxury-gold mt-2"
+            className="block mt-2" style={{color: '#F4E49C'}}
           >
             i Wykończenia Wnętrz
           </motion.span>
@@ -121,7 +70,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-luxury-gray-200 mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto"
         >
           Tworzymy przestrzenie, które łączą elegancję z funkcjonalnością.
           Najwyższa jakość w każdym detalu.
@@ -140,19 +89,22 @@ const Hero = () => {
               transition: { duration: 0.2, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-luxury-gold text-white rounded-full font-medium text-lg hover:bg-luxury-gold-dark transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-200 shadow-lg hover:shadow-xl" style={{backgroundColor: '#D4AF37'}}
           >
             Rozpocznij projekt
           </motion.button>
-          <motion.button 
+          <motion.button
             whileHover={{ 
-              scale: 1.05,
               y: -3,
-              borderColor: "#D4AF37",
               transition: { duration: 0.2, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 border-2 border-white text-white rounded-full font-medium text-lg hover:bg-luxury-gold hover:border-luxury-gold transition-all duration-200 shadow-lg hover:shadow-xl"
+            onClick={() => {
+              document.getElementById('portfolio')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
+            className="px-8 py-4 border-2 border-white text-white rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             Zobacz realizacje
           </motion.button>

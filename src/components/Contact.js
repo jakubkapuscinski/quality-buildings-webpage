@@ -84,8 +84,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-luxury-gray-850 to-luxury-gray-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-luxury-gold/3 via-transparent to-transparent"></div>
+    <section id="contact" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           ref={ref}
@@ -98,9 +97,9 @@ const Contact = () => {
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight text-center">
               Skontaktuj się z nami
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-luxury-gold to-luxury-gold-light mx-auto mb-8"></div>
+            <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-luxury-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Rozpocznij swoją podróż do wymarzonej przestrzeni
           </p>
         </motion.div>
@@ -111,14 +110,14 @@ const Contact = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl shadow-xl p-8 border border-luxury-gray-750 backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-serif font-bold text-white mb-6">
                 Wyślij zapytanie
               </h3>
               
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-luxury-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Imię i nazwisko *
                   </label>
                   <input
@@ -126,8 +125,8 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all bg-luxury-gray-800 text-white ${
-                      errors.name ? 'border-red-500' : 'border-luxury-gray-600'
+                    className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                      errors.name ? 'border-red-500' : 'border-white/20'
                     }`}
                     placeholder="Jan Kowalski"
                   />
@@ -136,7 +135,7 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-luxury-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -144,8 +143,8 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all bg-luxury-gray-800 text-white ${
-                        errors.email ? 'border-red-500' : 'border-luxury-gray-600'
+                      className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                        errors.email ? 'border-red-500' : 'border-white/20'
                       }`}
                       placeholder="jan@example.com"
                     />
@@ -153,7 +152,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-luxury-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Telefon *
                     </label>
                     <input
@@ -161,8 +160,8 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all bg-luxury-gray-800 text-white ${
-                        errors.phone ? 'border-red-500' : 'border-luxury-gray-600'
+                      className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                        errors.phone ? 'border-red-500' : 'border-white/20'
                       }`}
                       placeholder="+48 123 456 789"
                     />
@@ -171,15 +170,15 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-luxury-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Typ projektu *
                   </label>
                   <select
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all bg-luxury-gray-800 text-white ${
-                      errors.projectType ? 'border-red-500' : 'border-luxury-gray-600'
+                    className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                      errors.projectType ? 'border-red-500' : 'border-white/20'
                     }`}
                   >
                     <option value="">Wybierz typ projektu</option>
@@ -193,7 +192,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-luxury-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Wiadomość *
                   </label>
                   <textarea
@@ -201,8 +200,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-luxury-gold focus:border-transparent transition-all resize-none bg-luxury-gray-800 text-white ${
-                      errors.message ? 'border-red-500' : 'border-luxury-gray-600'
+                    className={`w-full px-4 py-3 border rounded-lg transition-all resize-none bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                      errors.message ? 'border-red-500' : 'border-white/20'
                     }`}
                     placeholder="Opisz swój projekt..."
                   />
@@ -212,7 +211,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-luxury-gold text-white rounded-full font-medium text-lg hover:bg-luxury-gold-dark transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed" style={{backgroundColor: '#D4AF37'}}
                 >
                   {isSubmitting ? 'Wysyłanie...' : 'Wyślij zapytanie'}
                 </button>
@@ -236,7 +235,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl shadow-xl p-8 border border-luxury-gray-750 backdrop-blur-sm">
+            <div className="bg-white/5 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-serif font-bold text-white mb-6">
                 Informacje kontaktowe
               </h3>
@@ -247,7 +246,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-white mb-1">{info.title}</h4>
                       {info.content.map((line, idx) => (
-                        <p key={idx} className="text-luxury-gray-300">{line}</p>
+                        <p key={idx} className="text-gray-300">{line}</p>
                       ))}
                     </div>
                   </div>
@@ -255,11 +254,11 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl shadow-xl p-8 border border-luxury-gray-750 backdrop-blur-sm">
+            <div className="bg-white/5 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-serif font-bold text-white mb-6">
                 Lokalizacja
               </h3>
-              <div className="aspect-video bg-luxury-gray-800 rounded-lg flex flex-col items-center justify-center text-luxury-gray-400 border border-luxury-gray-700">
+              <div className="aspect-video bg-white/5 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center text-gray-400 border border-white/10">
                 <svg className="w-16 h-16 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -269,13 +268,13 @@ const Contact = () => {
             </div>
 
             <div className="flex gap-4">
-              <a href="#" className="flex-1 bg-luxury-gray-700 text-white py-3 px-6 rounded-full text-center hover:bg-luxury-gray-600 transition-colors border border-luxury-gray-600">
+              <a href="#" className="flex-1 bg-white/10 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-white/20 transition-colors border border-white/20">
                 Facebook
               </a>
-              <a href="#" className="flex-1 bg-luxury-gray-700 text-white py-3 px-6 rounded-full text-center hover:bg-luxury-gray-600 transition-colors border border-luxury-gray-600">
+              <a href="#" className="flex-1 bg-white/10 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-white/20 transition-colors border border-white/20">
                 Instagram
               </a>
-              <a href="#" className="flex-1 bg-luxury-gray-700 text-white py-3 px-6 rounded-full text-center hover:bg-luxury-gray-600 transition-colors border border-luxury-gray-600">
+              <a href="#" className="flex-1 bg-white/10 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-white/20 transition-colors border border-white/20">
                 LinkedIn
               </a>
             </div>

@@ -99,50 +99,7 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="py-24 bg-gradient-to-b from-luxury-gray-950 to-luxury-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-luxury-gold/4 via-transparent to-transparent"></div>
-      
-      {/* Floating decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ 
-            y: [0, -30, 0],
-            rotate: [0, -8, 0],
-          }}
-          transition={{ 
-            duration: 14, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute top-24 left-8 w-2 h-2 bg-luxury-gold/25 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, 18, 0],
-            x: [0, 12, 0],
-          }}
-          transition={{ 
-            duration: 11, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute top-56 right-24 w-3 h-3 bg-luxury-gold/18 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, -22, 0],
-            rotate: [0, 6, 0],
-          }}
-          transition={{ 
-            duration: 13, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 4
-          }}
-          className="absolute bottom-48 left-16 w-1 h-1 bg-luxury-gold/30 rounded-full"
-        />
-      </div>
+    <section id="process" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           ref={ref}
@@ -155,15 +112,15 @@ const Process = () => {
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight text-center">
               Nasz Proces
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-luxury-gold to-luxury-gold-light mx-auto mb-8"></div>
+            <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-luxury-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Sprawdzony proces realizacji projektów od koncepcji do oddania kluczy
           </p>
         </motion.div>
 
         <div className="relative">
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-luxury-gold/30" />
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5" style={{backgroundColor: 'rgba(212,175,55,0.5)'}} />
           
           <div className="space-y-12">
             {steps.map((step, index) => (
@@ -194,23 +151,23 @@ const Process = () => {
                 }`}
               >
                 <div className="flex-1">
-                  <div className={`bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-luxury-gray-750 hover:border-luxury-gold/20 backdrop-blur-sm ${
+                  <div className={`bg-gray-900/60 backdrop-blur-xl rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/20 hover:shadow-xl backdrop-blur-sm ${
                     index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
                   }`}>
                     <div className="flex items-center mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-luxury-gold/20 to-luxury-gold/10 rounded-xl flex items-center justify-center text-luxury-gold mr-4">
+                      <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4" style={{background: 'linear-gradient(135deg, rgba(212,175,55,0.25), rgba(244,228,156,0.15))', color: '#F4E49C'}}>
                         {step.icon}
                       </div>
                       <div>
-                        <span className="text-luxury-gold text-sm font-semibold">KROK {step.number}</span>
+                        <span className="text-white text-sm font-semibold">KROK {step.number}</span>
                         <h3 className="text-2xl font-serif font-bold text-white">{step.title}</h3>
                       </div>
                     </div>
-                    <p className="text-luxury-gray-300 mb-4">{step.description}</p>
+                    <p className="text-gray-200 mb-4">{step.description}</p>
                     <ul className="space-y-2">
                       {step.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-luxury-gray-400">
-                          <svg className="w-4 h-4 text-luxury-gold mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <li key={idx} className="flex items-center text-sm text-gray-300">
+                          <svg className="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           {detail}
@@ -223,7 +180,8 @@ const Process = () => {
                 <div className="relative flex items-center justify-center my-8 lg:my-0">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="w-16 h-16 bg-luxury-gold rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-black font-bold text-xl shadow-lg"
+                    style={{backgroundColor: '#D4AF37'}}
                   >
                     {step.number}
                   </motion.div>
@@ -241,7 +199,7 @@ const Process = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <button className="px-8 py-4 bg-luxury-gold text-white rounded-full font-medium text-lg hover:bg-luxury-gold-dark transition-all duration-300 transform hover:scale-105">
+          <button className="px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105" style={{backgroundColor: '#D4AF37'}}>
             Rozpocznij swój projekt
           </button>
         </motion.div>

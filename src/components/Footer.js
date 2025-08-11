@@ -50,7 +50,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-luxury-gray-900 text-white">
+    <footer className="text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-1">
@@ -59,7 +59,7 @@ const Footer = () => {
               alt="Logo" 
               className="h-16 w-auto mb-4 object-contain"
             />
-            <p className="text-luxury-gray-400 mb-6">
+            <p className="text-gray-400 mb-6">
               Tworzymy przestrzenie, które inspirują. Luksus, jakość i dbałość o szczegóły.
             </p>
             <div className="flex gap-4">
@@ -67,7 +67,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href="#"
-                  className="w-10 h-10 bg-luxury-gray-800 rounded-full flex items-center justify-center hover:bg-luxury-gold transition-colors duration-300"
+                  className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors duration-300" onMouseEnter={e => e.target.style.backgroundColor = '#D4AF37'} onMouseLeave={e => e.target.style.backgroundColor = ''}
                   aria-label={social.name}
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -79,14 +79,14 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-luxury-gold">Firma</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{color: '#F4E49C'}}>Firma</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-luxury-gray-400 hover:text-white transition-colors duration-300"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -96,14 +96,14 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-luxury-gold">Usługi</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{color: '#F4E49C'}}>Usługi</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-luxury-gray-400 hover:text-white transition-colors duration-300"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -113,13 +113,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-luxury-gold">Prawne</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{color: '#F4E49C'}}>Prawne</h4>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-luxury-gray-400 hover:text-white transition-colors duration-300"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -129,13 +129,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-luxury-gold">Kontakt</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{color: '#F4E49C'}}>Kontakt</h4>
             <ul className="space-y-2">
               {footerLinks.contact.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-luxury-gray-400 hover:text-white transition-colors duration-300"
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -145,12 +145,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-luxury-gray-800 pt-8 mt-8">
+        <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-luxury-gray-400 text-center md:text-left mb-4 md:mb-0">
+            <p className="text-gray-400 text-center md:text-left mb-4 md:mb-0">
               © {currentYear} Luxury Construction. Wszystkie prawa zastrzeżone.
             </p>
-            <p className="text-luxury-gray-400 text-sm">
+            <p className="text-gray-400 text-sm">
               Zaprojektowane z ❤️ przez profesjonalistów
             </p>
           </div>
@@ -162,7 +162,7 @@ const Footer = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-luxury-gold rounded-full flex items-center justify-center shadow-lg hover:bg-luxury-gold-dark transition-all duration-300 transform hover:scale-110 z-30"
+        className="fixed bottom-8 right-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:brightness-110 transition-all duration-300 transform hover:scale-110 z-30" style={{backgroundColor: '#D4AF37'}}
         aria-label="Przewiń do góry"
       >
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
