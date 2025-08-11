@@ -1,0 +1,29 @@
+# Ignore Claude-related files
+.claude/
+CLAUDE.md
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.tmp
+*.bak
