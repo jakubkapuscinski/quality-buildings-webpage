@@ -19,7 +19,7 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-gray-900/90 backdrop-blur-xl rounded-3xl max-w-2xl w-full p-8 relative border border-white/20 backdrop-blur-sm"
+          className="bg-black/90 backdrop-blur-xl rounded-3xl max-w-2xl w-full p-8 relative border border-white/20 backdrop-blur-sm"
         >
           <button
             onClick={onClose}
@@ -35,14 +35,14 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
             </div>
             <h3 className="text-2xl font-serif font-bold text-white">{service.title}</h3>
           </div>
-          <p className="text-gray-300 mb-6">{service.fullDescription}</p>
+          <p className="text-gray-200 mb-6">{service.fullDescription}</p>
           <ul className="space-y-3 mb-6">
             {service.features.map((feature, index) => (
               <li key={index} className="flex items-start">
                 <svg className="w-5 h-5 mr-2 mt-0.5" style={{color: '#D4AF37'}} fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-300">{feature}</span>
+                <span className="text-gray-200">{feature}</span>
               </li>
             ))}
           </ul>
@@ -181,7 +181,7 @@ const Services = () => {
             </h2>
             <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Oferujemy kompleksowe rozwiązania w zakresie budownictwa i wykończeń wnętrz
           </p>
         </motion.div>
@@ -207,7 +207,7 @@ const Services = () => {
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
               onClick={() => setSelectedService(service)}
-              className="bg-white/8 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-white/15 hover:border-white/25 hover:bg-white/12 backdrop-blur-sm"
+              className="bg-black/30 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-white/15 hover:border-white/25 hover:bg-black/40 backdrop-blur-sm"
             >
               <div className="mb-6">
                 <div className="w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{background: 'linear-gradient(135deg, rgba(212,175,55,0.25), rgba(244,228,156,0.15))', color: '#F4E49C'}}>
@@ -217,7 +217,7 @@ const Services = () => {
               <h3 className="text-2xl font-serif font-bold text-white mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-200 mb-6">
                 {service.description}
               </p>
               <div className="flex items-center font-medium group-hover:gap-3 transition-all duration-300" style={{color: '#F4E49C'}}>

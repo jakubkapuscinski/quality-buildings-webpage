@@ -200,7 +200,7 @@ const Portfolio = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gray-800/90 backdrop-blur-xl rounded-3xl max-w-4xl w-full overflow-hidden border border-white/20 backdrop-blur-sm"
+              className="bg-black/90 backdrop-blur-xl rounded-3xl max-w-4xl w-full overflow-hidden border border-white/20 backdrop-blur-sm"
             >
               <div className="relative">
                 <img

@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div className="App bg-gradient-to-b from-black via-gray-800 to-black min-h-screen">
+    <div className="App bg-gradient-to-b from-black via-gray-950 to-black min-h-screen">
       <ScrollProgress />
       <Navigation />
       <Hero />

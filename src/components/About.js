@@ -58,32 +58,15 @@ const About = () => {
               <div className="w-16 h-1 mb-6" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
               <h3 className="text-2xl md:text-3xl font-serif mb-8" style={{color: '#F4E49C'}}>Budujemy z pasją</h3>
             </div>
-            <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+            <p className="text-xl text-gray-200 mb-6 leading-relaxed">
               Jesteśmy liderem w branży luksusowych konstrukcji i wykończeń wnętrz. 
               Nasze projekty łączą innowacyjne rozwiązania z ponadczasową elegancją.
             </p>
-            <p className="text-lg text-gray-400 mb-10 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-10 leading-relaxed">
               Każdy projekt traktujemy indywidualnie, dostosowując się do unikalnych 
               potrzeb i wizji naszych klientów. Dbałość o szczegóły i najwyższa jakość 
               wykonania to nasza wizytówka.
             </p>
-            <div className="flex flex-wrap gap-6 mb-8">
-              <div className="flex items-center">
-                <svg className="w-6 h-6 mr-2" style={{color: '#D4AF37'}} fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-gray-300">Certyfikowany wykonawca</span>
-              </div>
-              <div className="flex items-center">
-                <svg className="w-6 h-6 mr-2" style={{color: '#D4AF37'}} fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-gray-300">Gwarancja jakości</span>
-              </div>
-            </div>
-            <button className="px-8 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}>
-              Dowiedz się więcej
-            </button>
           </motion.div>
 
           <motion.div
@@ -125,12 +108,12 @@ const About = () => {
                 y: -5,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="text-center p-6 rounded-2xl hover:bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300"
+              className="text-center p-6 rounded-2xl hover:bg-black/20 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300"
             >
               <div className="text-4xl md:text-5xl font-bold mb-2" style={{color: '#F4E49C'}}>
                 <CounterAnimation end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-gray-400">{stat.label}</p>
+              <p className="text-gray-300">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>

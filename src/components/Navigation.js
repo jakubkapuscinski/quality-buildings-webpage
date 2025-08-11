@@ -3,16 +3,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [opacity, setOpacity] = useState(1);
+  const [translateY, setTranslateY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = window.innerHeight; // Wysokość pierwszej sekcji (Hero)
+      const heroHeight = window.innerHeight;
       const currentScrollY = window.scrollY;
       
       setScrolled(currentScrollY > 50);
-      setVisible(currentScrollY < heroHeight * 0.8); // Chowa się po 80% Hero sekcji
+      
+      // Płynne zanikanie menu po przewinięciu 60% Hero
+      if (currentScrollY > heroHeight * 0.6) {
+        const fadeStart = heroHeight * 0.6;
+        const fadeEnd = heroHeight * 0.9;
+        const fadeProgress = (currentScrollY - fadeStart) / (fadeEnd - fadeStart);
+        const newOpacity = Math.max(0, 1 - fadeProgress);
+        const newTranslateY = Math.min(100, fadeProgress * 100);
+        
+        setOpacity(newOpacity);
+        setTranslateY(-newTranslateY);
+      } else {
+        setOpacity(1);
+        setTranslateY(0);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,16 +52,17 @@ const Navigation = () => {
   };
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.nav 
-          initial={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -100 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className={`fixed w-full z-40 transition-all duration-500 ${
-            scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'
-          }`}
-        >
+    <motion.nav 
+      style={{ 
+        opacity: opacity,
+        transform: `translateY(${translateY}px)`,
+        pointerEvents: opacity < 0.1 ? 'none' : 'auto'
+      }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className={`fixed w-full z-40 transition-all duration-500 ${
+        scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg py-4' : 'bg-transparent py-6'
+      }`}
+    >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
               <motion.div
@@ -78,14 +94,6 @@ const Navigation = () => {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></span>
                   </motion.a>
                 ))}
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="px-6 py-2 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}
-                >
-                  Darmowa wycena
-                </motion.button>
               </div>
 
               <button
@@ -124,17 +132,12 @@ const Navigation = () => {
                         {item.name}
                       </a>
                     ))}
-                    <button className="w-full px-6 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}>
-                      Darmowa wycena
-                    </button>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         </motion.nav>
-      )}
-    </AnimatePresence>
   );
 };
 

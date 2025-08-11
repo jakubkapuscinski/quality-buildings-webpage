@@ -101,12 +101,12 @@ const Testimonials = () => {
             </h2>
             <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Zobacz, co mówią o nas nasi zadowoleni klienci
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto px-4 md:px-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -114,7 +114,7 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-white/10 backdrop-blur-sm"
+              className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 lg:p-12 border border-white/10 backdrop-blur-sm"
             >
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                 <img
@@ -126,17 +126,17 @@ const Testimonials = () => {
                   <div className="flex justify-center md:justify-start mb-4">
                     {renderStars(testimonials[currentIndex].rating)}
                   </div>
-                  <p className="text-lg text-gray-300 mb-6 italic">
+                  <p className="text-base md:text-lg text-gray-200 mb-6 italic break-words">
                     "{testimonials[currentIndex].content}"
                   </p>
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-lg md:text-xl font-semibold text-white break-words">
                       {testimonials[currentIndex].name}
                     </h4>
-                    <p className="text-gray-400">
+                    <p className="text-sm md:text-base text-gray-400 break-words">
                       {testimonials[currentIndex].role}
                     </p>
-                    <p className="text-sm mt-1" style={{color: '#F4E49C'}}>
+                    <p className="text-xs md:text-sm mt-1 break-words" style={{color: '#F4E49C'}}>
                       Projekt: {testimonials[currentIndex].project}
                     </p>
                   </div>
@@ -154,7 +154,7 @@ const Testimonials = () => {
               transition: { duration: 0.3, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.95 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20"
+            className="absolute -left-2 md:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/30 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-black/40 transition-colors border border-white/20"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -170,7 +170,7 @@ const Testimonials = () => {
               transition: { duration: 0.3, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.95 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20"
+            className="absolute -right-2 md:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/30 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-black/40 transition-colors border border-white/20"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -110,40 +110,6 @@ const Hero = () => {
           </motion.button>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: 1, 
-          y: 0,
-          transition: { delay: 1, duration: 1 }
-        }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div 
-          whileHover={{ scale: 1.1 }}
-          className="flex flex-col items-center cursor-pointer"
-        >
-          <motion.span 
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="text-white text-sm mb-2"
-          >
-            Przewiń w dół
-          </motion.span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-6 h-10 border-2 border-white rounded-full flex justify-center relative"
-          >
-            <motion.div 
-              animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="w-1 h-3 bg-white rounded-full mt-2"
-            />
-          </motion.div>
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

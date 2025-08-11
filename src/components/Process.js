@@ -151,7 +151,7 @@ const Process = () => {
                 }`}
               >
                 <div className="flex-1">
-                  <div className={`bg-gray-900/60 backdrop-blur-xl rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/20 hover:shadow-xl backdrop-blur-sm ${
+                  <div className={`bg-black/60 backdrop-blur-xl rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/20 hover:shadow-xl backdrop-blur-sm ${
                     index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'
                   }`}>
                     <div className="flex items-center mb-4">
@@ -166,7 +166,7 @@ const Process = () => {
                     <p className="text-gray-200 mb-4">{step.description}</p>
                     <ul className="space-y-2">
                       {step.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-gray-300">
+                        <li key={idx} className="flex items-center text-sm text-gray-200">
                           <svg className="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
@@ -175,16 +175,6 @@ const Process = () => {
                       ))}
                     </ul>
                   </div>
-                </div>
-
-                <div className="relative flex items-center justify-center my-8 lg:my-0">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-black font-bold text-xl shadow-lg"
-                    style={{backgroundColor: '#D4AF37'}}
-                  >
-                    {step.number}
-                  </motion.div>
                 </div>
 
                 <div className="flex-1 lg:block hidden" />

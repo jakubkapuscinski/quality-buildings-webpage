@@ -145,7 +145,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 mt-8">
+        <div className="border-t border-gray-950 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-center md:text-left mb-4 md:mb-0">
               © {currentYear} Luxury Construction. Wszystkie prawa zastrzeżone.
