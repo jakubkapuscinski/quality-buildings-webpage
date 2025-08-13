@@ -19,34 +19,41 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl max-w-2xl w-full p-8 relative border border-luxury-gray-750 backdrop-blur-sm"
+          className="bg-black/90 backdrop-blur-xl rounded-3xl max-w-2xl w-full p-8 relative border border-white/20 backdrop-blur-sm"
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-luxury-gray-800 hover:bg-luxury-gray-700 transition-colors text-white"
+            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
           <div className="flex items-center mb-6">
-            <div className="w-16 h-16 mr-4 bg-gradient-to-br from-luxury-gold/20 to-luxury-gold/10 rounded-xl flex items-center justify-center text-luxury-gold">
+            <div className="w-16 h-16 mr-4 rounded-xl flex items-center justify-center" style={{background: 'linear-gradient(135deg, rgba(212,175,55,0.25), rgba(244,228,156,0.15))', color: '#F4E49C'}}>
               {service.icon}
             </div>
             <h3 className="text-2xl font-serif font-bold text-white">{service.title}</h3>
           </div>
-          <p className="text-luxury-gray-300 mb-6">{service.fullDescription}</p>
+          <p className="text-gray-200 mb-6">{service.fullDescription}</p>
           <ul className="space-y-3 mb-6">
             {service.features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <svg className="w-5 h-5 text-luxury-gold mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-2 mt-0.5" style={{color: '#D4AF37'}} fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-luxury-gray-300">{feature}</span>
+                <span className="text-gray-200">{feature}</span>
               </li>
             ))}
           </ul>
-          <button className="w-full px-6 py-3 bg-luxury-gold text-white rounded-full font-medium hover:bg-luxury-gold-dark transition-colors duration-300">
+          <button 
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
+            className="w-full px-6 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}
+          >
             Zapytaj o tę usługę
           </button>
         </motion.div>
@@ -165,50 +172,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-luxury-gray-900 to-luxury-gray-850 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-luxury-gold/5 via-transparent to-transparent"></div>
-      
-      {/* Floating decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute top-20 left-10 w-2 h-2 bg-luxury-gold/20 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, 30, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute top-40 right-20 w-3 h-3 bg-luxury-gold/15 rounded-full"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, -15, 0],
-            rotate: [0, -5, 0],
-          }}
-          transition={{ 
-            duration: 10, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 4
-          }}
-          className="absolute bottom-32 left-20 w-1 h-1 bg-luxury-gold/25 rounded-full"
-        />
-      </div>
+    <section id="services" className="py-24 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
@@ -222,9 +186,9 @@ const Services = () => {
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight text-center">
               Nasze Usługi
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-luxury-gold to-luxury-gold-light mx-auto mb-8"></div>
+            <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-luxury-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Oferujemy kompleksowe rozwiązania w zakresie budownictwa i wykończeń wnętrz
           </p>
         </motion.div>
@@ -250,20 +214,20 @@ const Services = () => {
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
               onClick={() => setSelectedService(service)}
-              className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-luxury-gray-750 hover:border-luxury-gold/30 hover:bg-gradient-to-br hover:from-luxury-gray-800 hover:to-luxury-gray-850 backdrop-blur-sm"
+              className="bg-black/30 backdrop-blur-md rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-white/15 hover:border-white/25 hover:bg-black/40 backdrop-blur-sm"
             >
               <div className="mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-luxury-gold/20 to-luxury-gold/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 text-luxury-gold">
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{background: 'linear-gradient(135deg, rgba(212,175,55,0.25), rgba(244,228,156,0.15))', color: '#F4E49C'}}>
                   {service.icon}
                 </div>
               </div>
               <h3 className="text-2xl font-serif font-bold text-white mb-4">
                 {service.title}
               </h3>
-              <p className="text-luxury-gray-300 mb-6">
+              <p className="text-gray-200 mb-6">
                 {service.description}
               </p>
-              <div className="flex items-center text-luxury-gold font-medium group-hover:gap-3 transition-all duration-300">
+              <div className="flex items-center font-medium group-hover:gap-3 transition-all duration-300" style={{color: '#F4E49C'}}>
                 <span>Dowiedz się więcej</span>
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

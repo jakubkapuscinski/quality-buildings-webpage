@@ -88,8 +88,7 @@ const Portfolio = () => {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-24 bg-gradient-to-b from-luxury-gray-850 to-luxury-gray-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-luxury-gold/3 via-transparent to-transparent"></div>
+    <section id="portfolio" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           ref={ref}
@@ -102,9 +101,9 @@ const Portfolio = () => {
             <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight text-center">
               Nasze Realizacje
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-luxury-gold to-luxury-gold-light mx-auto mb-8"></div>
+            <div className="w-16 h-1 mx-auto mb-8" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}}></div>
           </div>
-          <p className="text-xl text-luxury-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Portfolio naszych najlepszych projektów
           </p>
         </motion.div>
@@ -121,9 +120,10 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(filter.value)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter.value
-                  ? 'bg-luxury-gold text-white'
-                  : 'bg-luxury-gray-800 text-luxury-gray-300 hover:bg-luxury-gray-700 border border-luxury-gray-700'
+                  ? 'text-black'
+                  : 'bg-white/10 text-gray-200 hover:bg-white/20 border border-white/20'
               }`}
+              style={activeFilter === filter.value ? {backgroundColor: '#D4AF37'} : {}}
             >
               {filter.label}
             </button>
@@ -171,7 +171,7 @@ const Portfolio = () => {
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <h3 className="text-2xl font-serif font-bold mb-2">{project.title}</h3>
                       <p className="text-sm opacity-90">{project.description}</p>
-                      <div className="flex items-center mt-3 text-luxury-gold">
+                      <div className="flex items-center mt-3" style={{color: '#F4E49C'}}>
                         <span className="text-sm">Zobacz więcej</span>
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -200,7 +200,7 @@ const Portfolio = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gradient-to-br from-luxury-gray-850 to-luxury-gray-900 rounded-3xl max-w-4xl w-full overflow-hidden border border-luxury-gray-750 backdrop-blur-sm"
+              className="bg-black/90 backdrop-blur-xl rounded-3xl max-w-4xl w-full overflow-hidden border border-white/20 backdrop-blur-sm"
             >
               <div className="relative">
                 <img
@@ -221,22 +221,29 @@ const Portfolio = () => {
                 <h3 className="text-3xl font-serif font-bold text-white mb-4">
                   {selectedProject.title}
                 </h3>
-                <p className="text-luxury-gray-300 mb-6">{selectedProject.details}</p>
+                <p className="text-gray-200 mb-6">{selectedProject.details}</p>
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div>
-                    <p className="text-sm text-luxury-gray-400">Rok realizacji</p>
+                    <p className="text-sm text-gray-400">Rok realizacji</p>
                     <p className="text-lg font-semibold text-white">{selectedProject.year}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-luxury-gray-400">Powierzchnia</p>
+                    <p className="text-sm text-gray-400">Powierzchnia</p>
                     <p className="text-lg font-semibold text-white">{selectedProject.area}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-luxury-gray-400">Czas realizacji</p>
+                    <p className="text-sm text-gray-400">Czas realizacji</p>
                     <p className="text-lg font-semibold text-white">{selectedProject.duration}</p>
                   </div>
                 </div>
-                <button className="px-8 py-3 bg-luxury-gold text-white rounded-full font-medium hover:bg-luxury-gold-dark transition-colors duration-300">
+                <button 
+                  onClick={() => {
+                    document.getElementById('contact')?.scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                  className="px-8 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}
+                >
                   Zapytaj o podobny projekt
                 </button>
               </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const LoadingScreen = () => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-luxury-gray-900">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -18,7 +18,7 @@ const LoadingScreen = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="w-16 h-16 mx-auto mb-4 border-4 border-luxury-gold border-t-transparent rounded-full"
+          className="w-16 h-16 mx-auto mb-4 border-4 border-t-transparent rounded-full" style={{borderColor: '#D4AF37', borderTopColor: 'transparent'}}
         />
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -26,15 +26,15 @@ const LoadingScreen = () => {
           transition={{ delay: 0.2 }}
           className="text-2xl font-serif text-white"
         >
-          Luxury Construction
+          Quality Building
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
           transition={{ delay: 0.4 }}
-          className="text-luxury-gray-400 mt-2"
+          className="text-gray-400 mt-2"
         >
-          Loading excellence...
+          Budujemy dla Ciebie stronę...
         </motion.p>
       </motion.div>
     </div>
