@@ -189,7 +189,14 @@ const Process = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <button className="px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105" style={{backgroundColor: '#D4AF37'}}>
+          <button 
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
+            className="px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105" style={{backgroundColor: '#D4AF37'}}
+          >
             Rozpocznij swój projekt
           </button>
         </motion.div>

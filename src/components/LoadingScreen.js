@@ -26,7 +26,7 @@ const LoadingScreen = () => {
           transition={{ delay: 0.2 }}
           className="text-2xl font-serif text-white"
         >
-          Luxury Construction
+          Quality Building
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -34,7 +34,7 @@ const LoadingScreen = () => {
           transition={{ delay: 0.4 }}
           className="text-gray-400 mt-2"
         >
-          Loading excellence...
+          Budujemy dla Ciebie stronę...
         </motion.p>
       </motion.div>
     </div>

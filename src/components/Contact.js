@@ -259,12 +259,21 @@ const Contact = () => {
               <h3 className="text-xl font-serif font-bold text-white mb-4">
                 Lokalizacja
               </h3>
-              <div className="aspect-[4/3] bg-black/30 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center text-gray-300 border border-white/10">
-                <svg className="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <p className="text-sm text-center px-4">ul. Luksusowa 123<br/>00-001 Warszawa</p>
+              <div className="aspect-[4/3] bg-black/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.3543!2d21.0133!3d52.2319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2spl!4v1692123456789!5m2!1sen!2spl"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokalizacja Quality Building"
+                ></iframe>
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-sm text-gray-200">ul. Luksusowa 123</p>
+                <p className="text-sm text-gray-200">00-001 Warszawa</p>
               </div>
             </div>
 

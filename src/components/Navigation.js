@@ -6,16 +6,30 @@ const Navigation = () => {
   const [opacity, setOpacity] = useState(1);
   const [translateY, setTranslateY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState('up');
 
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
       const currentScrollY = window.scrollY;
       
+      // Określ kierunek scrollowania
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      setLastScrollY(currentScrollY);
+      
       setScrolled(currentScrollY > 50);
       
-      // Płynne zanikanie menu po przewinięciu 60% Hero
-      if (currentScrollY > heroHeight * 0.6) {
+      // Pokaż menu przy scrollowaniu w górę lub na górze strony
+      if (scrollDirection === 'up' || currentScrollY < 100) {
+        setOpacity(1);
+        setTranslateY(0);
+      } else if (currentScrollY > heroHeight * 0.6) {
+        // Ukryj menu tylko przy scrollowaniu w dół po przekroczeniu 60% Hero
         const fadeStart = heroHeight * 0.6;
         const fadeEnd = heroHeight * 0.9;
         const fadeProgress = (currentScrollY - fadeStart) / (fadeEnd - fadeStart);
@@ -31,7 +45,7 @@ const Navigation = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY, scrollDirection]);
 
   const navItems = [
     { name: 'O nas', href: '#about' },
@@ -86,7 +100,7 @@ const Navigation = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className={`relative text-sm font-medium transition-colors duration-300 group ${
+                    className={`relative text-lg font-medium transition-colors duration-300 group ${
                       scrolled ? 'text-white' : 'text-white'
                     }`}
                   >
@@ -127,7 +141,7 @@ const Navigation = () => {
                         key={item.name}
                         href={item.href}
                         onClick={(e) => scrollToSection(e, item.href)}
-                        className="block py-2 text-white transition-colors" onMouseEnter={e => e.target.style.color = '#F4E49C'} onMouseLeave={e => e.target.style.color = 'white'}
+                        className="block py-2 text-white text-lg transition-colors" onMouseEnter={e => e.target.style.color = '#F4E49C'} onMouseLeave={e => e.target.style.color = 'white'}
                       >
                         {item.name}
                       </a>

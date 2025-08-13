@@ -46,7 +46,14 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
               </li>
             ))}
           </ul>
-          <button className="w-full px-6 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}>
+          <button 
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
+            className="w-full px-6 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}
+          >
             Zapytaj o tę usługę
           </button>
         </motion.div>

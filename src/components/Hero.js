@@ -89,6 +89,11 @@ const Hero = () => {
               transition: { duration: 0.2, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
             className="px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-200 shadow-lg hover:shadow-xl" style={{backgroundColor: '#D4AF37'}}
           >
             Rozpocznij projekt

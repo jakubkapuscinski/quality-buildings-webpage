@@ -236,7 +236,14 @@ const Portfolio = () => {
                     <p className="text-lg font-semibold text-white">{selectedProject.duration}</p>
                   </div>
                 </div>
-                <button className="px-8 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}>
+                <button 
+                  onClick={() => {
+                    document.getElementById('contact')?.scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                  className="px-8 py-3 text-black rounded-full font-medium hover:brightness-110 transition-colors duration-300" style={{backgroundColor: '#D4AF37'}}
+                >
                   Zapytaj o podobny projekt
                 </button>
               </div>
