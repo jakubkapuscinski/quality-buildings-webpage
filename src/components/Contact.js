@@ -34,7 +34,6 @@ const Contact = () => {
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
-      // Simulate API call
       setTimeout(() => {
         setIsSubmitting(false);
         setSubmitSuccess(true);
@@ -105,36 +104,38 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          {/* Contact Form - Left Side (60%) */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-8 md:p-10 lg:p-12 border border-white/10 backdrop-blur-sm h-full">
-              <h3 className="text-2xl font-serif font-bold text-white mb-6">
+            <form onSubmit={handleSubmit} className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-8 md:p-10 lg:p-12 border border-white/10">
+              <h3 className="text-3xl font-serif font-bold text-white mb-2">
                 Wyślij zapytanie
               </h3>
-              
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
-                    Imię i nazwisko *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
-                      errors.name ? 'border-red-500' : 'border-white/20'
-                    }`}
-                    placeholder="Jan Kowalski"
-                  />
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                </div>
+              <p className="text-gray-300 mb-8">Wypełnij formularz, a my skontaktujemy się z Tobą najszybciej jak to możliwe</p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
+                      Imię i nazwisko *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                        errors.name ? 'border-red-500' : 'border-white/20'
+                      }`}
+                      placeholder="Jan Kowalski"
+                    />
+                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                  </div>
+
                   <div>
                     <label className="block text-sm font-medium text-gray-200 mb-2">
                       Email *
@@ -151,7 +152,9 @@ const Contact = () => {
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                   </div>
+                </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-200 mb-2">
                       Telefon *
@@ -168,28 +171,28 @@ const Contact = () => {
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
-                    Typ projektu *
-                  </label>
-                  <select
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
-                      errors.projectType ? 'border-red-500' : 'border-white/20'
-                    }`}
-                  >
-                    <option value="">Wybierz typ projektu</option>
-                    <option value="construction">Budowa</option>
-                    <option value="interior">Wykończenie wnętrz</option>
-                    <option value="renovation">Renowacja</option>
-                    <option value="commercial">Projekt komercyjny</option>
-                    <option value="consultation">Konsultacja</option>
-                  </select>
-                  {errors.projectType && <p className="text-red-500 text-sm mt-1">{errors.projectType}</p>}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
+                      Typ projektu *
+                    </label>
+                    <select
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 border rounded-lg transition-all bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
+                        errors.projectType ? 'border-red-500' : 'border-white/20'
+                      }`}
+                    >
+                      <option value="">Wybierz typ projektu</option>
+                      <option value="construction">Budowa</option>
+                      <option value="interior">Wykończenie wnętrz</option>
+                      <option value="renovation">Renowacja</option>
+                      <option value="commercial">Projekt komercyjny</option>
+                      <option value="consultation">Konsultacja</option>
+                    </select>
+                    {errors.projectType && <p className="text-red-500 text-sm mt-1">{errors.projectType}</p>}
+                  </div>
                 </div>
 
                 <div>
@@ -200,7 +203,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
+                    rows={5}
                     className={`w-full px-4 py-3 border rounded-lg transition-all resize-none bg-white/5 backdrop-blur-sm text-white border-white/20 focus:border-opacity-100 focus:ring-2 focus:ring-opacity-50 ${
                       errors.message ? 'border-red-500' : 'border-white/20'
                     }`}
@@ -212,7 +215,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed" style={{backgroundColor: '#D4AF37'}}
+                  className="w-full px-8 py-4 text-black rounded-full font-medium text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg" style={{backgroundColor: '#D4AF37'}}
                 >
                   {isSubmitting ? 'Wysyłanie...' : 'Wyślij zapytanie'}
                 </button>
@@ -230,24 +233,28 @@ const Contact = () => {
             </form>
           </motion.div>
 
+          {/* Contact Info - Right Side (40%) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-6 md:p-8 border border-white/10 backdrop-blur-sm">
-              <h3 className="text-xl font-serif font-bold text-white mb-4">
+            {/* Contact Information Card */}
+            <div className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/10">
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">
                 Informacje kontaktowe
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="text-xl mr-3">{info.icon}</span>
-                    <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">{info.title}</h4>
+                  <div key={index} className="flex items-start group">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(244, 228, 156, 0.2))'}}>
+                      <span className="text-2xl">{info.icon}</span>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="font-semibold text-white mb-1">{info.title}</h4>
                       {info.content.map((line, idx) => (
-                        <p key={idx} className="text-gray-200 text-sm">{line}</p>
+                        <p key={idx} className="text-gray-300 text-sm">{line}</p>
                       ))}
                     </div>
                   </div>
@@ -255,11 +262,12 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-6 md:p-8 border border-white/10 backdrop-blur-sm">
-              <h3 className="text-xl font-serif font-bold text-white mb-4">
-                Lokalizacja
+            {/* Map Card */}
+            <div className="bg-black/20 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/10">
+              <h3 className="text-2xl font-serif font-bold text-white mb-6">
+                Nasza lokalizacja
               </h3>
-              <div className="aspect-[4/3] bg-black/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10">
+              <div className="aspect-video bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 mb-4">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.3543!2d21.0133!3d52.2319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2spl!4v1692123456789!5m2!1sen!2spl"
                   width="100%"
@@ -271,37 +279,6 @@ const Contact = () => {
                   title="Lokalizacja Quality Building"
                 ></iframe>
               </div>
-              <div className="mt-4 text-center">
-                <p className="text-sm text-gray-200">ul. Luksusowa 123</p>
-                <p className="text-sm text-gray-200">00-001 Warszawa</p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-black/20 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-black/30 transition-colors border border-white/20 text-sm">
-                <span className="inline-flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                  Facebook
-                </span>
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-black/20 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-black/30 transition-colors border border-white/20 text-sm">
-                <span className="inline-flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-                  </svg>
-                  Instagram
-                </span>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-black/20 backdrop-blur-sm text-white py-3 px-6 rounded-full text-center hover:bg-black/30 transition-colors border border-white/20 text-sm">
-                <span className="inline-flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  LinkedIn
-                </span>
-              </a>
             </div>
           </motion.div>
         </div>

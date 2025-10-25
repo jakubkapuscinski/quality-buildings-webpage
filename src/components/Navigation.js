@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const [translateY, setTranslateY] = useState(0);
@@ -13,23 +16,20 @@ const Navigation = () => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
       const currentScrollY = window.scrollY;
-      
-      // Określ kierunek scrollowania
+
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
       } else {
         setScrollDirection('up');
       }
       setLastScrollY(currentScrollY);
-      
+
       setScrolled(currentScrollY > 50);
-      
-      // Pokaż menu przy scrollowaniu w górę lub na górze strony
+
       if (scrollDirection === 'up' || currentScrollY < 100) {
         setOpacity(1);
         setTranslateY(0);
       } else if (currentScrollY > heroHeight * 0.6) {
-        // Ukryj menu tylko przy scrollowaniu w dół po przekroczeniu 60% Hero
         const fadeStart = heroHeight * 0.6;
         const fadeEnd = heroHeight * 0.9;
         const fadeProgress = (currentScrollY - fadeStart) / (fadeEnd - fadeStart);
@@ -52,16 +52,26 @@ const Navigation = () => {
     { name: 'Usługi', href: '#services' },
     { name: 'Realizacje', href: '#portfolio' },
     { name: 'Proces', href: '#process' },
-    { name: 'Opinie', href: '#testimonials' },
     { name: 'Kontakt', href: '#contact' },
   ];
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
+    setMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
