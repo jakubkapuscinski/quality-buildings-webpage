@@ -2,6 +2,10 @@
   "name": "luxury-construction-site",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "framer-motion": "^11.0.3",
     "react": "^18.2.0",
