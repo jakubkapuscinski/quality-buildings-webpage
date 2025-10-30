@@ -27,3 +27,6 @@ Thumbs.db
 *.log
 *.tmp
 *.bak
+
+# Source photos folder (temporary)
+realizacja_zdjęcia/

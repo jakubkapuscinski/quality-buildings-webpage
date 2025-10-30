@@ -89,6 +89,29 @@ const projects = [
         '/realizacje/mieszkalne/klasyczny-angielski/detale/IMG_4293.jpg'
       ]
     }
+  },
+  {
+    id: 2,
+    title: 'Młyn',
+    category: 'current',
+    image: '/realizacje/w-trakcie/mlyn/Profilowe.jpg',
+    description: 'Aktualna realizacja w trakcie',
+    details: 'Trwająca realizacja projektu Młyn. Prace są obecnie wykonywane zgodnie z harmonogramem. Szczegóły i więcej informacji pojawią się wkrótce.',
+    year: '2025',
+    status: 'W trakcie realizacji',
+    gallery: [
+      '/realizacje/w-trakcie/mlyn/Profilowe.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0006.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0011.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0012.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0013.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0014.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0017.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0021.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0022.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0023.jpg',
+      '/realizacje/w-trakcie/mlyn/IMG-20251027-WA0025.jpg'
+    ]
   }
 ];
 
