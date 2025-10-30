@@ -20,7 +20,10 @@ const RealizationDetail = ({ projects }) => {
     const handleKeyPress = (e) => {
       if (selectedPhotoIndex === null) return;
 
-      const currentPhotos = project.gallery[selectedCategory] || [];
+      const isGalleryArray = Array.isArray(project.gallery);
+      const currentPhotos = isGalleryArray 
+        ? project.gallery 
+        : (project.gallery[selectedCategory] || []);
 
       if (e.key === 'Escape') {
         setSelectedPhotoIndex(null);
@@ -56,8 +59,10 @@ const RealizationDetail = ({ projects }) => {
     );
   }
 
+  // Check if gallery is an array (no categories) or object (with categories)
+  const isGalleryArray = Array.isArray(project.gallery);
   const allPhotos = project.gallery
-    ? project.gallery[selectedCategory] || []
+    ? (isGalleryArray ? project.gallery : (project.gallery[selectedCategory] || []))
     : [];
 
   const categoryLabels = {
@@ -120,6 +125,12 @@ const RealizationDetail = ({ projects }) => {
             <p className="text-xl text-gray-200 max-w-3xl">
               {project.description}
             </p>
+            {project.status && (
+              <div className="mt-4 inline-flex items-center px-4 py-2 rounded-full bg-yellow-500/20 border border-yellow-500/30">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span>
+                <span className="text-yellow-500 font-medium">{project.status}</span>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
@@ -181,9 +192,10 @@ const RealizationDetail = ({ projects }) => {
               <div className="w-16 h-1 mx-auto" style={{background: 'linear-gradient(to right, #D4AF37, #F4E49C)'}} />
             </div>
 
-            {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {Object.keys(project.gallery).map((category) => (
+            {/* Category Filters - Only show if gallery has categories */}
+            {!isGalleryArray && (
+              <div className="flex flex-wrap justify-center gap-3 mb-12">
+                {Object.keys(project.gallery).map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
@@ -196,8 +208,9 @@ const RealizationDetail = ({ projects }) => {
                 >
                   {categoryLabels[category]}
                 </button>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             {/* Gallery Grid */}
             <motion.div
